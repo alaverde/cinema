@@ -1,8 +1,7 @@
 package com.politecnico.serviceuser.entities;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
@@ -13,6 +12,9 @@ import java.util.Objects;
 @Getter
 @Entity
 @Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class User {
 
     @Id
@@ -21,9 +23,12 @@ public class User {
     @Column(name = "number_id", unique = true, nullable = false)
     private Long id;
     @NotEmpty(message = "El nombre no puede ser vacio")
+    @Column(name = "name")
     private String name;
     @NotEmpty(message = "El apellido no puede ser vacio")
+    @Column(name = "last_name")
     private String lastName;
+
 
     @Override
     public boolean equals(Object o) {

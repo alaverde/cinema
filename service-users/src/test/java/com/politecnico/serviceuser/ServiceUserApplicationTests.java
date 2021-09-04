@@ -1,4 +1,4 @@
-package com.example.serviceuser;
+package com.politecnico.serviceuser;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

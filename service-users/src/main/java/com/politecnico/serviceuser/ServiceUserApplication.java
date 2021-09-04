@@ -1,4 +1,4 @@
-package com.example.serviceuser;
+package com.politecnico.serviceuser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

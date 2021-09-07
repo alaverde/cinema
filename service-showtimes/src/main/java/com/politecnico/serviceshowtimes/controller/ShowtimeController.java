@@ -73,16 +73,14 @@ public class ShowtimeController {
         return builder.success(showtimeDTO);
     }
 
-    @PutMapping
-    public Response update(BindingResult result,@PathVariable("id") Long id){
-        Showtime showtime = showtimeService.findById(id);
+    @PutMapping("/{id}")
+    public Response update(@RequestBody Showtime showtime, @PathVariable("id") Long id,BindingResult result){
         if(result.hasErrors()){
             return builder.failed(Format.formatMessage((result)));
         }
-
-        showtimeService.save(showtime);
+        showtimeService.update(id,showtime);
         ShowtimeDTO showtimeDTO = ShowtimeDTO.builder()
-                .id(showtime.getId())
+                .id(id)
                 .fecha(showtime.getDate())
                 .build();
 

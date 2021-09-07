@@ -3,4 +3,5 @@ rootProject.name = 'final'
 include 'service-users'
 include 'service-showtimes'
 include 'service-bookings'
+include 'service-movies'
 

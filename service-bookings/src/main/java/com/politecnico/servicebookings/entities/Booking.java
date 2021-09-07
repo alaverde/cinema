@@ -26,7 +26,7 @@ public class Booking {
     @NotEmpty(message = "El id del showtime no puede ser nulo")
     @Column(name = "showtime_id")
     private Long showTimeId;
-    private List<Object> movies;
+    //private List<Object> movies;
 
 
     @Override

@@ -1,0 +1,1 @@
+INSERT INTO movies (title,director,rating) VALUES ('HP','bbd',5);

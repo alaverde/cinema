@@ -17,13 +17,11 @@ import java.util.Objects;
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //TODO: pendiente buscar como poner el primary
+    //TODO: pendiente buscar como poner el primary y el not null de entero
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
-    @NotEmpty(message = "El id del usuario no puede ser nulo")
     @Column(name = "user_id")
     private Long userId;
-    @NotEmpty(message = "El id del showtime no puede ser nulo")
     @Column(name = "showtime_id")
     private Long showTimeId;
     //private List<Object> movies;

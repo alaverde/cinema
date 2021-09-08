@@ -45,17 +45,20 @@ public class ShowtimeController {
     @PostMapping
     public Response save(@Valid @RequestBody Showtime showtime, BindingResult result){
         if(result.hasErrors()){
-            return builder.failed(Format.formatMessage((result)));
+            return builder.failed(null);
         }
 
         showtimeService.save(showtime);
 
-        ShowtimeDTO showtimeDTO = ShowtimeDTO.builder()
+       /* ShowtimeDTO showtimeDTO = ShowtimeDTO.builder()
                 .id(showtime.getId())
                 .fecha(showtime.getDate())
+                .
                 .build();
 
-        return builder.success(showtimeDTO);
+        */
+
+        return builder.success(showtime);
     }
 
 
@@ -65,12 +68,13 @@ public class ShowtimeController {
         if (showtime == null){
             return builder.success(null);
         }
-        ShowtimeDTO showtimeDTO = ShowtimeDTO.builder()
+       /*ShowtimeDTO showtimeDTO = ShowtimeDTO.builder()
                 .id(showtime.getId())
                 .fecha(showtime.getDate())
                 .build();
+                */
 
-        return builder.success(showtimeDTO);
+        return builder.success(showtime);
     }
 
     @PutMapping("/{id}")

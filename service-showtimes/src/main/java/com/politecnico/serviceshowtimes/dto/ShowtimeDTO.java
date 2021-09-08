@@ -1,5 +1,6 @@
 package com.politecnico.serviceshowtimes.dto;
 
+import com.politecnico.serviceshowtimes.models.Movies;
 import lombok.*;
 
 import java.io.Serializable;
@@ -14,4 +15,5 @@ import java.util.List;
 public class ShowtimeDTO implements Serializable {
     private Long id;
     private Date fecha;
+    private List<Movies> movie;
 }

@@ -42,10 +42,10 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable("id") Long id) {
+    public Response delete(@PathVariable("id") Long id) {
         Movie movie = movieService.findById(id);
         if (movie == null) {
-            return ResponseEntity.notFound().build();
+            return builder.failed(null);
         }
         movieService.delete(movie);
 
@@ -55,7 +55,7 @@ public class MovieController {
                 .director(movie.getDirector())
                 .rango(movie.getRating())
                 .build();
-        return ResponseEntity.ok(movieDTO);
+        return builder.success(movieDTO);
     }
 
     @GetMapping
@@ -69,12 +69,12 @@ public class MovieController {
 
         for (Movie movie : movies) {
             listMovieDTO.add(MovieDTO.builder()
+                    .id(movie.getId())
                     .titulo(movie.getTitle())
                     .director(movie.getDirector())
                     .rango(movie.getRating())
                     .build());
         }
-
         return ResponseEntity.ok(listMovieDTO);
     }
 

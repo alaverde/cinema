@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-bookings
+          uri: lb://service-bookings
+          predicates:
+            - Path=/booking/**

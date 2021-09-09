@@ -6,4 +6,5 @@ include 'service-bookings'
 include 'service-movies'
 include 'service-config'
 include 'service-eureka'
+//include 'commons'
 

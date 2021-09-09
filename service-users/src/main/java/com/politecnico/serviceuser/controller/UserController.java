@@ -33,8 +33,8 @@ public class UserController {
 
         UserDTO userDTO = UserDTO.builder()
                 .id(user.getId())
-                .nombre(user.getName())
-                .apellido(user.getLastName())
+                .name(user.getName())
+                .lastName(user.getLastName())
                 .build();
 
         return builder.success(userDTO);
@@ -50,8 +50,8 @@ public class UserController {
 
         UserDTO userDTO = UserDTO.builder()
                 .id(user.getId())
-                .nombre(user.getName())
-                .apellido(user.getLastName())
+                .name(user.getName())
+                .lastName(user.getLastName())
                 .build();
 
         return ResponseEntity.ok(userDTO);
@@ -69,8 +69,8 @@ public class UserController {
         for (User user : users) {
             listUserDTO.add(UserDTO.builder()
                     .id(user.getId())
-                    .nombre(user.getName())
-                    .apellido(user.getLastName())
+                    .name(user.getName())
+                    .lastName(user.getLastName())
                     .build());
         }
 
@@ -86,8 +86,8 @@ public class UserController {
 
         UserDTO userDTO = UserDTO.builder()
                 .id(user.getId())
-                .nombre(user.getName())
-                .apellido(user.getLastName())
+                .name(user.getName())
+                .lastName(user.getLastName())
                 .build();
 
         return builder.success(userDTO);

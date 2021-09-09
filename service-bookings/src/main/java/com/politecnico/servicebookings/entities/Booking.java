@@ -1,8 +1,12 @@
 package com.politecnico.servicebookings.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.politecnico.servicebookings.models.Showtimes;
+import com.politecnico.servicebookings.models.Users;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +28,18 @@ public class Booking {
     private Long userId;
     @Column(name = "showtime_id")
     private Long showTimeId;
-    //private List<Object> movies;
+
+    @Transient
+    private Users user;
+
+    @Transient
+    private Showtimes showtime;
+
+    @Valid
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "booking_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    private List<BookingItemMovie> items;
 
 
     @Override

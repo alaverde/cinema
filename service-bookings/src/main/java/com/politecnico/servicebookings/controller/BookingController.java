@@ -33,13 +33,15 @@ public class BookingController {
 
         bookingService.save(booking);
 
-        BookingDTO userDTO = BookingDTO.builder()
+       /* BookingDTO userDTO = BookingDTO.builder()
                 .id(booking.getId())
                 .userId(booking.getUserId())
                 .showTimeId(booking.getShowTimeId())
                 .build();
 
-        return builder.success(userDTO);
+        */
+
+        return builder.success(booking);
     }
 
     @DeleteMapping("/{id}")
@@ -86,13 +88,15 @@ public class BookingController {
             return builder.success(null);
         }
 
-        BookingDTO bookingDTO = BookingDTO.builder()
+      /*  BookingDTO bookingDTO = BookingDTO.builder()
                 .id(booking.getId())
                 .userId(booking.getUserId())
                 .showTimeId(booking.getShowTimeId())
                 .build();
+                
+       */
 
-        return builder.success(bookingDTO);
+        return builder.success(booking);
     }
 
 

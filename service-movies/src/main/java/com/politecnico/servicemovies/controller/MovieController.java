@@ -33,9 +33,9 @@ public class MovieController {
 
         MovieDTO movieDTO = MovieDTO.builder()
                 .id(movie.getId())
-                .titulo(movie.getTitle())
+                .title(movie.getTitle())
                 .director(movie.getDirector())
-                .rango(movie.getRating())
+                .rating(movie.getRating())
                 .build();
         return builder.success(movieDTO);
 
@@ -51,9 +51,9 @@ public class MovieController {
 
         MovieDTO movieDTO = MovieDTO.builder()
                 .id(movie.getId())
-                .titulo(movie.getTitle())
+                .title(movie.getTitle())
                 .director(movie.getDirector())
-                .rango(movie.getRating())
+                .rating(movie.getRating())
                 .build();
         return builder.success(movieDTO);
     }
@@ -70,9 +70,9 @@ public class MovieController {
         for (Movie movie : movies) {
             listMovieDTO.add(MovieDTO.builder()
                     .id(movie.getId())
-                    .titulo(movie.getTitle())
+                    .title(movie.getTitle())
                     .director(movie.getDirector())
-                    .rango(movie.getRating())
+                    .rating(movie.getRating())
                     .build());
         }
         return ResponseEntity.ok(listMovieDTO);
@@ -87,9 +87,9 @@ public class MovieController {
 
         MovieDTO movieDTO = MovieDTO.builder()
                 .id(movie.getId())
-                .titulo(movie.getTitle())
+                .title(movie.getTitle())
                 .director(movie.getDirector())
-                .rango(movie.getRating())
+                .rating(movie.getRating())
                 .build();
 
         return builder.success(movieDTO);

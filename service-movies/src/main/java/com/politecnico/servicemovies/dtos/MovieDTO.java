@@ -12,8 +12,8 @@ import java.io.Serializable;
 public class MovieDTO implements Serializable {
 
     private long id;
-    private String titulo;
+    private String title;
     private String director;
-    private int rango;
+    private int rating;
 
 }

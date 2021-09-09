@@ -43,7 +43,7 @@ public class ShowtimeServiceImpl implements ShowtimeService {
         ModelMapper modelMapper = new ModelMapper();
         List<ShowTimeItems> movieList= showtime.getItems().stream()
                 .map(showTimeItems -> {
-                    Movies movies = modelMapper.map(movieClient.findById(showTimeItems.getId()), Movies.class);
+                    Movies movies = modelMapper.map(movieClient.findById(showTimeItems.getMovieId()).getData(), Movies.class);
                     showTimeItems.setMovies(movies);
                     return showTimeItems;
                         }).collect(Collectors.toList());

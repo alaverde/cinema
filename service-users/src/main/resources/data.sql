@@ -1,4 +1,4 @@
-INSERT INTO users (name,last_name) VALUES ('Andres','Laverde');
-INSERT INTO users (name,last_name) VALUES ('Melissa','Monsalve');
-INSERT INTO users (name,last_name) VALUES ('Karolayn','Mazo');
-INSERT INTO users (name,last_name) VALUES ('Gionany','Osorio');
+INSERT INTO users (number_id,name,last_name) VALUES (1,'Andres','Laverde');
+INSERT INTO users (number_id,name,last_name) VALUES (2,'Melissa','Monsalve');
+INSERT INTO users (number_id,name,last_name) VALUES (3,'Karolayn','Mazo');
+INSERT INTO users (number_id,name,last_name) VALUES (4,'Gionany','Osorio');

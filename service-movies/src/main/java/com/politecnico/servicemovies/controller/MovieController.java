@@ -46,21 +46,36 @@ public class MovieController {
     @DeleteMapping("/{id}")
     public Response delete(@PathVariable("id") Long id) {
         Movie movie = movieService.findById(id);
-        Response response = bookingClient.findAllByIdMovie(id);
-        System.out.println(response);
-        return null;
-//        if (movie == null) {
-//            return builder.failed(null);
-//        }
-//        movieService.delete(movie);
-//
-//        MovieDTO movieDTO = MovieDTO.builder()
-//                .id(movie.getId())
-//                .title(movie.getTitle())
-//                .director(movie.getDirector())
-//                .rating(movie.getRating())
-//                .build();
-//        return builder.success(movieDTO);
+        Response response = null;
+        try{
+            response = bookingClient.findAllByIdMovie(id);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
+
+        MovieDTO movieDTO = MovieDTO.builder()
+                .id(movie.getId())
+                .title(movie.getTitle())
+                .director(movie.getDirector())
+                .rating(movie.getRating())
+                .build();
+        if(response != null){
+            return builder.failed(movieDTO);
+        }else{
+            if (movie == null) {
+                return builder.failed(null);
+            }
+            movieService.delete(movie);
+
+            movieDTO = MovieDTO.builder()
+                    .id(movie.getId())
+                    .title(movie.getTitle())
+                    .director(movie.getDirector())
+                    .rating(movie.getRating())
+                    .build();
+
+            return builder.success(movieDTO);
+        }
     }
 
     @GetMapping

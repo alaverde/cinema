@@ -1,4 +1,4 @@
-package com.politecnico.servicemovies.dtos;
+package com.politecnico.servicemovies.dto;
 
 import lombok.*;
 

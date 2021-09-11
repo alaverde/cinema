@@ -1,6 +1,7 @@
 package com.politecnico.servicemovies.controller;
 
-import com.politecnico.servicemovies.dtos.MovieDTO;
+import com.politecnico.servicemovies.client.BookingClient;
+import com.politecnico.servicemovies.dto.MovieDTO;
 import com.politecnico.servicemovies.entities.Movie;
 import com.politecnico.servicemovies.services.MovieService;
 import com.politecnico.servicemovies.utils.Format;
@@ -22,6 +23,7 @@ public class MovieController {
 
     private final MovieService movieService;
     private final ResponseBuilder builder;
+    private final BookingClient bookingClient;
 
     @PostMapping
     public Response save(@Valid @RequestBody Movie movie, BindingResult result) {
@@ -44,18 +46,21 @@ public class MovieController {
     @DeleteMapping("/{id}")
     public Response delete(@PathVariable("id") Long id) {
         Movie movie = movieService.findById(id);
-        if (movie == null) {
-            return builder.failed(null);
-        }
-        movieService.delete(movie);
-
-        MovieDTO movieDTO = MovieDTO.builder()
-                .id(movie.getId())
-                .title(movie.getTitle())
-                .director(movie.getDirector())
-                .rating(movie.getRating())
-                .build();
-        return builder.success(movieDTO);
+        Response response = bookingClient.findAllByIdMovie(id);
+        System.out.println(response);
+        return null;
+//        if (movie == null) {
+//            return builder.failed(null);
+//        }
+//        movieService.delete(movie);
+//
+//        MovieDTO movieDTO = MovieDTO.builder()
+//                .id(movie.getId())
+//                .title(movie.getTitle())
+//                .director(movie.getDirector())
+//                .rating(movie.getRating())
+//                .build();
+//        return builder.success(movieDTO);
     }
 
     @GetMapping

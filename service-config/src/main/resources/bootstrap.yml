@@ -5,10 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: file:///C:/Users/karol/Documents/2021/Computacion en la nube/projectFinal/final
+          uri: file:///C:/final
   security:
     user:
-      name: ${CONFIG_USER}
-      password: ${CONFIG_PASSWORD}
+      name: admin
+      password: admin
 server:
   port: 9000

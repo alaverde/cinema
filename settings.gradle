@@ -7,5 +7,6 @@ include 'service-movies'
 include 'service-config'
 include 'service-eureka'
 include 'service-gateway'
+include 'service-admin'
 //include 'commons'
 
